@@ -1,58 +1,9 @@
+#Made by Alex
+
+#======Libraries======
 import random
 
-print("Hello world!")
-
-#Dual Caesar Cipher Class Definition
-class dualCC:
-	#Constructor initialization
-	def __init__(self, listArg):
-		#Variables
-		self.offset = 0
-		self.someList = listArg
-	#Offset
-	def offsetFunc(self):
-		self.offset = int(input("Integer to offset by: "))
-		for index in range(len(self.someList)):
-			self.someList[index] += self.offset
-	#Print
-	def printList(self):
-		for count, num in enumerate(self.someList):
-			if count != len(self.someList) - 1:
-				print(num, end = ', ')
-			else:
-				print(num)
-
-# listA = [5, 5, 9, 16, 19, 21, 1, 4, 18, 12]
-# listB = [14, 24, 2, 3, 4, 20, 11, 15, 19, 1]
-# objA = dualCC(listA)
-# objB = dualCC(listB)
-# while True:
-# 	print("List A:", end = ' ')
-# 	objA.printList()
-# 	objA.offsetFunc()
-# 	print("List B:", end = ' ')
-# 	objB.printList()
-# 	objB.offsetFunc()
-# 	print("List A:", end = ' ')
-# 	objA.printList()
-# 	print("List B:", end = ' ')
-# 	objB.printList()
-# 	usrInpt = input("Press Q to quit or R to reset: ").lower()
-# 	if usrInpt == 'q':
-# 		break
-# 	elif usrInpt == 'r':
-# 		listA = [5, 5, 9, 16, 19, 21, 1, 4, 18, 12]
-# 		listB = [14, 24, 2, 3, 4, 20, 11, 15, 19, 1]
-# 		objA = dualCC(listA)
-# 		objB = dualCC(listB)
-# 	print("=============================\n")
-
-def generatorFunc(value):
-	for i in range(value):
-		yield i
-
-foo = generatorFunc(100)
-
+#======Functions======
 def myFunc(degree, t, value):
 	print(f"How far did a car travel if it was traveling at {value} m/s^{degree} for {t} seconds?")
 	#Suppose (1/a)bc^d
@@ -267,3 +218,11 @@ def proj_3():
 	#Given an initial integer and a final integer, calculate the initial date, the final date, and how many days are between the two dates.
 	initial = int(input())
 	final = int(input())
+
+#======Main======
+def main():
+	print("Hello world!")
+
+#======Execution Check======
+if __name__ == "__main__":
+	main()
