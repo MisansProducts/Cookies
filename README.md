@@ -18,6 +18,7 @@ Functions:
 * `proj_1()` - Gets quotient and remainder.
 * `proj_2()` - Gets elapsed time.
 * `proj_3()` - Unfinished.
+* `rand_grid()` - Produces a grid of random letters.
 
 Make sure [Python](https://www.python.org/downloads/ "Download Python from www.python.org") is installed on your device before opening this file.
 

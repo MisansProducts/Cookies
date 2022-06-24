@@ -219,10 +219,95 @@ def proj_3():
 	initial = int(input())
 	final = int(input())
 
+#Random Grid Function
+def rand_grid():
+	letters = "abcdefghijklmnopqrstuvwxyz"
+	size = int(input("Grid size: "))
+	grid = []
+	for row in range(size):
+		currentCol = []
+		for col in range(size):
+			currentCol.append(random.choice(letters))
+		grid.append(currentCol)
+	
+	for row in range(size):
+		for col in range(size):
+			print(grid[row][col], end = ' ')
+		print()
+
 #======Main======
 def main():
-	print("Hello world!")
+	prompt = [
+		"1) myFunc(degree, t, value) - Calculates the displacement of some object over an initial exponent of velocity.",
+		"2) multP(num, count = 0) - Calculates the multiplicative persistence of a number.",
+		"3) cool_stars(d) - Generates a pattern of stars.",
+		"4) add(n) - Adds a list of numbers together.",
+		"5) multiply(n) - Multiplies a list of numbers together.",
+		"6) find_time() - Calculates the time on a clock from the given time and the time elapsed.",
+		"7) b_sort() - Bubble sort a list of numbers.",
+		"8) bSortNew(amount = 10, min = 0, max = 10) - Bubble sort a random list of numbers.",
+		"9) s_sort() - Selection sort a list of numbers.",
+		"10) i_sort() - Insertion sort a list of numbers.",
+		"11) max_matrix_indicies() - Finds the coordinates of the largest number in a matrix.",
+		"12) d_dict() - Reverses keys and values in a dictionary data type.",
+		"13) proj_1() - Gets quotient and remainder.",
+		"14) proj_2() - Gets elapsed time.",
+		"15) proj_3() - Unfinished.",
+		"16) rand_grid() - Produces a grid of random letters."
+	]
+	inputFlag = True
+	response = 0
+
+	while (inputFlag):
+		print("Please select an option from the list below.")
+		print("Or, type 0 to exit.")
+		for option in prompt:
+			print(option)
+		try:
+			response = int(input("Response: "))
+		except:
+			print("Error. Response not an integer.")
+		else:
+			inputFlag = False
+	
+	if response == 0:
+		return -1
+	elif response == 1:
+		myFunc(4, 4, 4)
+	elif response == 2:
+		multP(4, count = 0)
+	elif response == 3:
+		cool_stars(4)
+	elif response == 4:
+		add(4)
+	elif response == 5:
+		multiply(4)
+	elif response == 6:
+		find_time()
+	elif response == 7:
+		b_sort()
+	elif response == 8:
+		bSortNew()
+	elif response == 9:
+		s_sort()
+	elif response == 10:
+		i_sort()
+	elif response == 11:
+		max_matrix_indicies()
+	elif response == 12:
+		d_dict()
+	elif response == 13:
+		proj_1()
+	elif response == 14:
+		proj_2()
+	elif response == 15:
+		proj_3()
+	elif response == 16:
+		rand_grid()
 
 #======Execution Check======
 if __name__ == "__main__":
-	main()
+	print("Hello world!")
+	while True:
+		if main() == -1:
+			break
