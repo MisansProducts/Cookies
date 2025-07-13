@@ -19,9 +19,40 @@ def genList(size):
 	#Returns populated list
 	return l
 
+def test_runtimes(l):
+	sizes = [i for i in range(len(l))]
+	cubic_times = []
+	quadratic_times = []
+	linear_times = []
+
+	for size in sizes:
+		start = time.time()
+		cubic(l[:size])
+		cubic_times.append(time.time() - start)
+
+		start = time.time()
+		quadratic(l[:size])
+		quadratic_times.append(time.time() - start)
+
+		start = time.time()
+		linear(l[:size])
+		linear_times.append(time.time() - start)
+
+	# Plots results
+	plt.plot(sizes, cubic_times, label="Cubic O(n³)")
+	plt.plot(sizes, quadratic_times, label="Quadratic O(n²)")
+	plt.plot(sizes, linear_times, label="Linear O(n)")
+	plt.xlabel("Input Size (n)")
+	plt.ylabel("Execution Time (seconds)")
+	plt.title("Runtime Complexity")
+	plt.legend()
+	plt.grid(True)
+	plt.savefig("graphs/runtime_comparison.png")
+	plt.show()
+
 #Print Result Function
-def printResult(t: tuple[list[int], int, list[float]], label):
-	sequence, max_sum, times = t
+def printResult(t: tuple[list[int], int]):
+	sequence, max_sum = t
 	N = len(sequence)
 
 	#List contains more than 1 number
@@ -34,19 +65,11 @@ def printResult(t: tuple[list[int], int, list[float]], label):
 		print(sequence[-1], end = " = ") #This number will always be positive
 	#Prints max sum
 	print(max_sum, "is the largest contiguous sum")
-	
-	# Plots the times
-	plt.plot(times)
-	plt.xlabel('Index')
-	plt.ylabel('Time Elapsed')
-	plt.title(label)
-	plt.savefig(f"graphs/{label}.png")
-	plt.close()
+
 #Cubic Function
-def cubic(l, start_time=time.time()):
+def cubic(l):
 	maxSum = 0 #Initializes max sum
 	maxSequence = [] #Initializes max sequence
-	times = []
 	#Loops through list (starting index)
 	for i in range(len(l)):
 		#Loops through list (ending index)
@@ -64,14 +87,12 @@ def cubic(l, start_time=time.time()):
 			if currentSum >= maxSum:
 				maxSum = currentSum
 				maxSequence = copy.deepcopy(currentSequence)
-		times.append(time.time() - start_time)
-	return maxSequence, maxSum, times
+	return maxSequence, maxSum
 
 #Quadratic Function
-def quadratic(l, start_time=time.time()):
+def quadratic(l):
 	maxSum = 0 #Initializes max sum
 	maxSequence = [] #Initializes max sequence
-	times = []
 	#Loops through list (starting index)
 	for i in range(len(l)):
 		#Resets current sum and current sequence list
@@ -87,17 +108,15 @@ def quadratic(l, start_time=time.time()):
 			if currentSum >= maxSum:
 				maxSum = currentSum
 				maxSequence = copy.deepcopy(currentSequence)
-		times.append(time.time() - start_time)
-	return maxSequence, maxSum, times
+	return maxSequence, maxSum
 
 #Linear Function
-def linear(l, start_time=time.time()):
+def linear(l):
 	#Variables
 	maxSum = 0 #Initializes max sum
 	maxSequence = [] #Initializes max sequence
 	currentSum = 0 #Current sum
 	currentSequence = [] #Current sequence
-	times = []
 	#Loops through list
 	for i in range(len(l)):
 		currentSum += l[i] #Sums numbers
@@ -110,8 +129,7 @@ def linear(l, start_time=time.time()):
 		elif currentSum < 0:
 			currentSum = 0
 			currentSequence = []
-		times.append(time.time() - start_time)
-	return maxSequence, maxSum, times
+	return maxSequence, maxSum
 
 #======Main======
 def main():
@@ -157,7 +175,7 @@ def main():
 	end = time.time() #Gets ending time
 	cubicTime = end - start
 	print("-=-=-=Run time complexity of O(N^3)=-=-=-")
-	printResult(response, "Cubic")
+	printResult(response)
 	print("Time elapsed:", cubicTime)
 
 	print() #Spacer
@@ -168,7 +186,7 @@ def main():
 	end = time.time() #Gets ending time
 	quadraticTime = end - start
 	print("-=-=-=Run time complexity of O(N^2)=-=-=-")
-	printResult(response, "Quadratic")
+	printResult(response)
 	print("Time elapsed:", quadraticTime)
 
 	print() #Spacer
@@ -179,8 +197,10 @@ def main():
 	end = time.time() #Gets ending time
 	linearTime = end - start
 	print("-=-=-=Run time complexity of O(N)=-=-=-")
-	printResult(response, "Linear")
+	printResult(response)
 	print("Time elapsed:", linearTime)
+
+	test_runtimes(myList)
 
 #======Execution Check======
 if __name__ == '__main__':
