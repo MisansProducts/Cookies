@@ -2,7 +2,7 @@
 
 This is my first Python project. It consists of a variety of functions that each do different things. To use it, run `main.py` and use one of the functions below.
 
-Functions:
+## Functions
 - `myFunc(degree, t, value)` - A relatively new function that calculates the displacement of some object over an initial exponent of velocity.
 - `multP(num, count = 0)` - Calculates the multiplicative persistence of a number. This means for a given number, multiply their digits together and get a new number. Do this until you have a one-digit number or 0.
 - `cool_stars(d)` - Generates a pattern of stars.
