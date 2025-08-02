@@ -21,3 +21,7 @@ This is my first Python project. It consists of a variety of functions that each
 - `rand_grid()` - Produces a grid of random letters.
 
 Make sure [Python](https://www.python.org/downloads/ "Download Python from www.python.org") is installed on your device before opening this file.
+
+## To Do
+- Make each function its own Python file
+- Remove redundant functions
