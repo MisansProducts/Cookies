@@ -216,8 +216,49 @@ def proj_3():
 	#Apr, Jun, Sep, Nov = 30
 	#Feb = 28
 	#Given an initial integer and a final integer, calculate the initial date, the final date, and how many days are between the two dates.
-	initial = int(input())
-	final = int(input())
+	initial = int(input("Initial date number between 1-365: "))
+	final = int(input("Final date number between 1-365: "))
+	
+	# Define the months and their days in order
+	months = [
+        ("January", 31),
+        ("February", 28),
+        ("March", 31),
+        ("April", 30),
+        ("May", 31),
+        ("June", 30),
+        ("July", 31),
+        ("August", 31),
+        ("September", 30),
+        ("October", 31),
+        ("November", 30),
+        ("December", 31)
+    ]
+
+	def day_to_date(day_num):
+		if day_num < 1 or day_num > 365:
+			return "Invalid day number"
+		
+		remaining_days = day_num
+		for i, (month, days_in_month) in enumerate(months):
+			if remaining_days <= days_in_month:
+				month_num = i + 1
+				day = remaining_days
+				return f"{month_num:02d}/{day:02d}"
+			remaining_days -= days_in_month
+
+	initial_date = day_to_date(initial)
+	final_date = day_to_date(final)
+	
+	if initial_date == "Invalid day number" or final_date == "Invalid day number":
+		print("Invalid day number")
+		return
+	
+	days_between = final - initial
+	
+	print(f"Initial date: {initial_date}")
+	print(f"Final date: {final_date}")
+	print(f"Days between: {days_between}")
 
 #Random Grid Function
 def rand_grid():
