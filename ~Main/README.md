@@ -25,3 +25,4 @@ Make sure [Python](https://www.python.org/downloads/ "Download Python from www.p
 ## To Do
 - Make each function its own Python file
 - Remove redundant functions
+- Use Tkinter for some basic GUI
