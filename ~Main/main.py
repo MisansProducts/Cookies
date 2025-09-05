@@ -4,14 +4,6 @@
 import random
 
 #======Functions======
-#Cool Stars Function
-def cool_stars(d):
-  for i in range(1, d * 2):
-    if i <= d:
-      print('*' * i)
-    else:
-      print('*' * ((d * 2) - i))
-
 #Add Function
 def add(n):
 	z = 0
