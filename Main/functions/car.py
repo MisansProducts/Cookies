@@ -1,4 +1,4 @@
-def myFunc(degree, t, value):
+def car(degree, t, value):
 	print(f"How far did a car travel if it was traveling at {value} m/s^{degree} for {t} seconds?")
 	#Suppose (1/a)bc^d
 	#Then b/a multiplies by c^d

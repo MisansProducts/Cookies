@@ -1,5 +1,5 @@
 #Multiplicative Persistence
-def multP(num, count = 0):
+def mult_p(num, count = 0):
 	product = 1
 	digits = [int(index) for index in str(num)]
 	for element in digits:
@@ -8,4 +8,4 @@ def multP(num, count = 0):
 		return print(f"Count: {count}")
 	count += 1
 	print(product)
-	multP(product, count)
+	mult_p(product, count)

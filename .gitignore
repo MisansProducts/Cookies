@@ -1,3 +1,5 @@
 .vscode/
 venv/
 graphs/
+__pycache__/
+
