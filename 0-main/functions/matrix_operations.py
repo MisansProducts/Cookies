@@ -1,11 +1,37 @@
 def max_matrix_indicies():
-	ROWS, COLS = [int(j) for j in input("Dimensions: ").split()]
-	a = [[int(j) for j in input("Enter values: ").split()] for i in range(ROWS)]
-
+	try:
+		dims = input("Enter the dimensions separated by a space (i.e., \"2 2\"): ").split()
+		if len(dims) != 2:
+			raise IndexError
+		
+		ROWS, COLS = [int(j) for j in dims]
+		
+		a = []
+		for i in range(ROWS):
+			row = input(f"Enter values (row {i + 1}): ").split()
+			if len(row) != COLS:
+				raise IndexError
+			
+			row = [int(j) for j in row]
+			a.append(row)
+	except IndexError as e:
+		print(f"Error: Incorrect format.")
+		return True
+	except ValueError as e:
+		print(f"Error: {e}")
+		return True
+	except KeyboardInterrupt:
+		print()
+		return True
 	mx = -float("inf")
+	print("Matrix:")
 	for ROWS, lst in enumerate(a):
 		for COLS, val in enumerate(lst):
+			print(val, end=' ')
 			if val > mx:
 				mx = val
-				ind = [ROWS,COLS]
+				ind = [ROWS, COLS]
+		print()
+
 	print("Location of the first maximum point:", *ind)
+	return False
