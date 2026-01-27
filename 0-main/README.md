@@ -6,6 +6,9 @@ This is my first Python project. It contains a collection of utility functions f
 ## Usage
 Run `python main.py`
 
+### Example
+![Screenshot](images/example.jpg)
+
 ## Functions
 - **Car Problem (1)** - Calculates the displacement of a car traveling at a specified derivative order with a flat magnitude over time
 - **Multiplicative persistence (2)** - Repeatedly multiplies digits until a single digit, counting the steps
