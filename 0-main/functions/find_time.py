@@ -1,3 +1,5 @@
+import sys
+
 def find_time():
 	try:
 		time_input = list(input("Current Time (hh:mm AM/PM): ").replace(":", " ", -1).split())
@@ -7,10 +9,10 @@ def find_time():
 		hours, minutes, meridiem_indicator = int(time_input[0]), int(time_input[1]), time_input[2].lower()
 		if hours < 1 or hours > 12:
 			print("Error: Hours must be between 1 and 12!")
-			return True
+			sys.exit(1)
 		if minutes < 0 or minutes > 59:
 			print("Error: Minutes must be between 0 and 59!")
-			return True
+			sys.exit(1)
 		if meridiem_indicator not in ("am", "pm"):
 			raise ValueError(f"Incorrect meridiem indicator, {meridiem_indicator}. Use AM or PM.")
 		
@@ -18,13 +20,13 @@ def find_time():
 			# Negative hours/minutes can pass, but I am keeping that in because I think that is funny
 	except IndexError as e:
 		print(f"Error: Incorrect format.")
-		return True
+		sys.exit(1)
 	except ValueError as e:
 		print(f"Error: {e}")
-		return True
+		sys.exit(1)
 	except KeyboardInterrupt:
 		print()
-		return True
+		sys.exit(1)
 	
 	# Calculation
 	if meridiem_indicator == "pm" and hours < 12:
@@ -46,4 +48,3 @@ def find_time():
 		print(f"The time is now {hours_final}:{minutes_final:02d} AM.")
 	else:
 		print(f"The time is now {hours_final + 12}:{minutes_final:02d} AM.")
-	return False

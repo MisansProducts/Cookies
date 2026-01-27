@@ -1,28 +1,12 @@
+from utils.input_validators import get_valid_int, get_valid_float
+
 def add():
-	try:
-		n = int(input("Enter the number of numbers you want to add: "))
-		if n < 1:
-			print("Error: There must be at least 1 number to add with!")
-			return True
-	except ValueError as e:
-		print(f"Error: {e}")
-		return True
-	except KeyboardInterrupt:
-		print()
-		return True
-	
+	n = get_valid_int("Enter the number of numbers you want to add: ", min_val=1, parameter_name="Number of addends")
+
 	z = 0
 	for i in range(1, n + 1):
-		try:
-			x = float(input(f"Addend {i}: "))
-		except ValueError as e:
-			print(f"Error: {e}")
-			return True
-		except KeyboardInterrupt:
-			print()
-			return True
+		x = get_valid_float(f"Addend {i}: ")
 		z += x
 		if z % 1 == 0:
 			z = int(z)
 	print(f"Sum: {z}")
-	return False

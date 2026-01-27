@@ -1,33 +1,20 @@
-def car():
-	try:
-		order = int(
-			input(
-				"\nWhat derivative order was the car traveling?\n"
-				"1) Velocity (m/s)\n"
-				"2) Acceleration (m/s^2)\n"
-				"3) Jerk (m/s^3)\n"
-				"4) Jounce (m/s^4)\n"
-				"...\n"
-				"n) n-th derivative (m/s^n)\n"
-				"Order: "
-			)
-		)
-		if order < 1:
-			print("Error: Derivative order cannot be less than 1!")
-			return True
-		
-		magnitude = float(input("\nHow fast was the car traveling?\nMagnitude (meters): "))
+from utils.input_validators import get_valid_int, get_valid_float
 
-		t = float(input("\nHow long did the car travel for?\nTime (seconds): "))
-		if t < 0:
-			print("Error: Time cannot be less than 0!")
-			return True
-	except ValueError as e:
-		print(f"Error: {e}")
-		return True
-	except KeyboardInterrupt:
-		print()
-		return True
+def car():
+	order = get_valid_int(
+		"What derivative order was the car traveling?\n"
+		"1) Velocity (m/s)\n"
+		"2) Acceleration (m/s^2)\n"
+		"3) Jerk (m/s^3)\n"
+		"4) Jounce (m/s^4)\n"
+		"...\n"
+		"n) n-th derivative (m/s^n)\n"
+		"Order: ",
+		min_val=1,
+		parameter_name="Derivative order"
+	)
+	magnitude = get_valid_float("\nHow fast was the car traveling?\nMagnitude (meters): ", parameter_name="Magnitude")
+	t = get_valid_float("\nHow long did the car travel for?\nTime (seconds): ", min_val=0, parameter_name="Time")
 	
 	print(f"\nHow far did a car travel if it was traveling at {magnitude} m/s^{order} for {t} seconds?")
 
@@ -45,4 +32,3 @@ def car():
 	p = coeffs[-1] * t ** order
 	
 	print(f"The car traveled {p:.2f} meters.")
-	return False

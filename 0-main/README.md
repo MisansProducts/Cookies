@@ -1,27 +1,26 @@
-# Cookies/~Main
+# Main
+> Cookies/0-main/
 
-This is my first Python project. It consists of a variety of functions that each do different things. To use it, run `main.py` and use one of the functions below.
+This is my first Python project. It contains a collection of utility functions for various mathematical and programming tasks.
+
+## Usage
+Run `python main.py`
 
 ## Functions
-- `car(degree, t, value)` - A relatively new function that calculates the displacement of some object over an initial exponent of velocity.
-- `mult_p(num, count = 0)` - Calculates the multiplicative persistence of a number. This means for a given number, multiply their digits together and get a new number. Do this until you have a one-digit number or 0.
-- `cool_stars(d)` - Generates a pattern of stars.
-- `add(n)` - Adds a list of numbers together.
-- `multiply(n)` - Multiplies a list of numbers together.
-- `find_time()` - Calculates the time on a clock from the given time and the time elapsed.
-- `b_sort()` - Bubble sort a list of numbers.
-- `s_sort()` - Selection sort a list of numbers.
-- `i_sort()` - Insertion sort a list of numbers.
-- `max_matrix_indicies()` - Finds the coordinates of the largest number in a matrix.
-- `d_dict()` - Reverses keys and values in a dictionary data type.
-- `proj_1()` - Gets quotient and remainder.
-- `proj_2()` - Gets elapsed time.
-- `proj_3()` - Gets days between two dates in a year.
-- `rand_grid()` - Produces a grid of random letters.
+- **Car Problem (1)** - Calculates the displacement of a car traveling at a specified derivative order with a flat magnitude over time
+- **Multiplicative persistence (2)** - Repeatedly multiplies digits until a single digit, counting the steps
+- **Cool stars (3)** - Generates a star pattern with specified height
+- **Add (4)** - Adds a list of numbers together
+- **Multiply (5)** - Multiplies a list of numbers together
+- **Find time elapsed (6)** - Calculates clock time after elapsed duration
+- **Bubble sort (7)** - Sorts numbers using bubble sort algorithm
+- **Selection sort (8)** - Sorts numbers using selection sort algorithm  
+- **Insertion sort (9)** - Sorts numbers using insertion sort algorithm
+- **Matrix max indices (10)** - Finds coordinates of the largest number in a matrix
+- **Reverse dictionary (11)** - Reverses keys and values in a dictionary
+- **Project 1 (12)** - Gets quotient and remainder using division
+- **Project 2 (13)** - Gets elapsed time calculation
+- **Project 3 (14)** - Gets number of days between two dates in a year
+- **Random grid (15)** - Produces a grid of random letters
 
-Make sure [Python](https://www.python.org/downloads/ "Download Python from www.python.org") is installed on your device before opening this file.
-
-## To Do
-- Make each function its own Python file
-- Remove redundant functions
-- Use Tkinter for some basic GUI
+Make sure [Python](https://www.python.org/downloads/) is installed on your device before running this file.

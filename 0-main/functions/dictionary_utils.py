@@ -1,15 +1,9 @@
+import sys
+
+from utils.input_validators import get_valid_int
+
 def d_dict():
-	try:
-		n = int(input("Enter the number of entries: "))
-		if n < 1:
-			print("Error: A dictionary cannot have less than 1 entry!")
-			return True
-	except ValueError as e:
-		print(f"Error: {e}")
-		return True
-	except KeyboardInterrupt:
-		print()
-		return True
+	n = get_valid_int("Enter the number of entries: ", min_val=1, parameter_name="Number of entries")
 	
 	print("Define dictionary (Key - Value(s))")
 	print("Format: key_1 - value_1, value_2, ..., value_n")
@@ -21,10 +15,10 @@ def d_dict():
 				raise IndexError
 		except IndexError as e:
 			print(f"Error: Incorrect format.")
-			return True
+			sys.exit(1)
 		except KeyboardInterrupt:
 			print()
-			return True
+			sys.exit(1)
 		
 		key, values = l
 		for value in values.split(', '):
@@ -34,4 +28,3 @@ def d_dict():
 
 	for i in sorted(d):
 		print(i, "-", ", ".join(sorted(d[i])))
-	return False

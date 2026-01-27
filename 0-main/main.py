@@ -1,3 +1,5 @@
+import sys
+
 #======Function Imports======
 from functions.car import car
 from functions.mult_p import mult_p
@@ -6,10 +8,16 @@ from functions.add import add
 from functions.multiply import multiply
 from functions.find_time import find_time
 from functions.sort import b_sort, s_sort, i_sort
-from functions.matrix_operations import max_matrix_indicies
+from functions.matrix_operations import max_matrix_indices
 from functions.dictionary_utils import d_dict
 from functions.projects import proj_1, proj_2, proj_3
 from functions.grid_utils import rand_grid
+
+from utils.input_validators import get_valid_int
+
+def _exit():
+	print("Goodbye world!")
+	sys.exit(0)
 
 #======Main======
 def main():
@@ -26,13 +34,14 @@ def main():
 		"9) Insertion sort\n\tUses insertion sort on a list of numbers.\n"
 		"10) Matrix max indices\n\tFinds the coordinates of the largest number in a matrix.\n"
 		"11) Reverse dictionary\n\tReverses keys and values in a dictionary.\n"
-		"12) proj_1() - Gets quotient and remainder.\n"
-		"13) proj_2() - Gets elapsed time.\n"
-		"14) proj_3() - Unfinished.\n"
-		"15) rand_grid() - Produces a grid of random letters.\n"
+		"12) Project 1\n\tGets quotient and remainder using cookies.\n"
+		"13) Project 2\n\tGets elapsed time.\n"
+		"14) Project 3\n\tGets number of days between 2 dates.\n"
+		"15) Random grid\n\tProduces a grid of random letters.\n"
 		"Response: "
 	)
 	options = (
+		_exit,
 		car,
 		mult_p,
 		cool_stars,
@@ -42,33 +51,16 @@ def main():
 		b_sort,
 		s_sort,
 		i_sort,
-		max_matrix_indicies,
+		max_matrix_indices,
 		d_dict,
 		proj_1,
 		proj_2,
 		proj_3,
 		rand_grid
 	)
-	option = 0
-	N = len(options)
-
-	# Input sanitization
-	try:
-		option = int(input(prompt))
-		if option < 0 or option > N:
-			print(f"Error: Response must be between 0 and {N}!")
-			return True
-	except ValueError as e:
-		print(f"Error: {e}")
-		return True
-	except KeyboardInterrupt:
-		print()
-		return True
-	
-	if option == 0:
-		return False
-	
-	return options[option - 1]()
+	option = get_valid_int(prompt, min_val=0, max_val=len(options)-1, parameter_name="Response")
+	print()
+	return options[option]()
 
 #======Execution Check======
 if __name__ == "__main__":

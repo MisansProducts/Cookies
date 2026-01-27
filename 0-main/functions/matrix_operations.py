@@ -1,4 +1,6 @@
-def max_matrix_indicies():
+import sys
+
+def max_matrix_indices():
 	try:
 		dims = input("Enter the dimensions separated by a space (i.e., \"2 2\"): ").split()
 		if len(dims) != 2:
@@ -16,14 +18,16 @@ def max_matrix_indicies():
 			a.append(row)
 	except IndexError as e:
 		print(f"Error: Incorrect format.")
-		return True
+		sys.exit(1)
 	except ValueError as e:
 		print(f"Error: {e}")
-		return True
+		sys.exit(1)
 	except KeyboardInterrupt:
 		print()
-		return True
+		sys.exit(1)
 	mx = -float("inf")
+	ind = [0, 0]
+	
 	print("Matrix:")
 	for ROWS, lst in enumerate(a):
 		for COLS, val in enumerate(lst):
@@ -34,4 +38,3 @@ def max_matrix_indicies():
 		print()
 
 	print("Location of the first maximum point:", *ind)
-	return False

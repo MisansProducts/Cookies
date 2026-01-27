@@ -1,20 +1,26 @@
+from utils.input_validators import get_valid_int
+
 def proj_1():
-	#Alex loves cookies! Given that Alex divided n cookies with m friends, find how many cookies Alex gave to each friend and if there are any leftovers. Print all the information in one summary sentence.
-	#Example Input: 8, 3
-	#Example Output: Alex divided 8 cookies into 3 equal groups, giving his friends 2 cookies each with 2 cookies leftover.
-	n = int(input())
-	m = int(input())
+	# Alex loves cookies! Given that Alex divided n cookies with m friends,
+	# find how many cookies Alex gave to each friend and if there are any leftovers.
+	# Print all the information in one summary sentence.
+	# Example Input: 8, 3
+	# Example Output: Alex divided 8 cookies into 3 equal groups, giving his friends 2 cookies each with 2 cookies leftover.
+	n = get_valid_int("Enter the number of cookies: ", min_val=0, parameter_name="Number of cookies")
+	m = get_valid_int("Enter the number of people: ", min_val=1, parameter_name="Number of people")
 	quotient = n // m
 	remainder = n % m
 	print("Alex divided", n, "cookies into", m, "equal groups, giving his friends", quotient, "cookies each with", remainder, "cookies leftover.")
 
 def proj_2():
-	#Alex wants to know how much time is left before his alarm goes off (on a 24-hour clock). You are given the initial time and the alarm's time without a colon separator (hhmm). Find out how much time is left before the alarm goes off.
-	#Example Input: 1330, 2330
-	#Example Output: 10 hours and 0 minutes left.
-	initial_time = int(input())
-	final_time = int(input())
-	
+	# Alex wants to know how much time is left before his alarm goes off (on a 24-hour clock).
+	# You are given the initial time and the alarm's time without a colon separator (hhmm).
+	# Find out how much time is left before the alarm goes off.
+	# Example Input: 1330, 2330
+	# Example Output: 10 hours and 0 minutes left.
+	initial_time = get_valid_int("Enter the initial time (hhmm): ", min_val=0, parameter_name="Initial time")
+	final_time = get_valid_int("Enter the final time (hhmm): ", min_val=0, parameter_name="Final time")
+
 	initial_minutes = (1440 + (60 * (initial_time % 10000 // 100) + (initial_time % 100)))
 	final_minutes = (1440 + (60 * (final_time % 10000 // 100) + (final_time % 100)))
 	
@@ -24,13 +30,13 @@ def proj_2():
 	print(elapsed_hours, "hours and", elapsed_minutes, "minutes left.")
 
 def proj_3():
-	#Alex wants to convert his integer dates to mm/dd. Using the 2019 Julian Calendar
-	#Jan, March, May, Jul, Aug, Oct, Dec = 31
-	#Apr, Jun, Sep, Nov = 30
-	#Feb = 28
-	#Given an initial integer and a final integer, calculate the initial date, the final date, and how many days are between the two dates.
-	initial = int(input("Initial date number between 1-365: "))
-	final = int(input("Final date number between 1-365: "))
+	# Alex wants to convert his integer dates to mm/dd using the 2019 Julian Calendar.
+	# Jan, March, May, Jul, Aug, Oct, Dec = 31
+	# Apr, Jun, Sep, Nov = 30
+	# Feb = 28
+	# Given an initial integer and a final integer, calculate the initial date, the final date, and how many days are between the two dates.
+	initial = get_valid_int("Initial date number between 1-365: ", min_val=1, max_val=365, parameter_name="The date")
+	final = get_valid_int(f"Final date number between {initial}-365: ", min_val=initial, max_val=365, parameter_name="The date")
 	
 	# Define the months and their days in order
 	months = [
@@ -48,11 +54,7 @@ def proj_3():
         ("December", 31)
     ]
 
-	def day_to_date(day_num):
-		if day_num < 1 or day_num > 365:
-			return "Invalid day number"
-		
-		remaining_days = day_num
+	def day_to_date(remaining_days):
 		for i, (month, days_in_month) in enumerate(months):
 			if remaining_days <= days_in_month:
 				month_num = i + 1
@@ -62,10 +64,6 @@ def proj_3():
 
 	initial_date = day_to_date(initial)
 	final_date = day_to_date(final)
-	
-	if initial_date == "Invalid day number" or final_date == "Invalid day number":
-		print("Invalid day number")
-		return
 	
 	days_between = final - initial
 	

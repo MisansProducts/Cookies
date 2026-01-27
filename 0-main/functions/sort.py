@@ -1,9 +1,11 @@
+import sys
+
 def b_sort():
 	try:
 		l = input("Type a list elements separated by spaces (i.e., \"1 2 3\"): ").split()
 	except KeyboardInterrupt:
 		print()
-		return True
+		sys.exit(1)
 	
 	for i in range(len(l)):
 		for j in range(len(l) - 1):
@@ -12,14 +14,13 @@ def b_sort():
 				l[j] = l[j + 1]
 				l[j + 1] = temp
 	print(*l)
-	return False
 
 def s_sort():
 	try:
 		l = input("Type a list elements separated by spaces (i.e., \"1 2 3\"): ").split()
 	except KeyboardInterrupt:
 		print()
-		return True
+		sys.exit(1)
 	
 	for i in range(len(l)):
 		m = i
@@ -28,14 +29,13 @@ def s_sort():
 				m = j
 		l[m], l[i] = l[i], l[m]
 	print(*l)
-	return False
 
 def i_sort():
 	try:
 		l = input("Type a list elements separated by spaces (i.e., \"1 2 3\"): ").split()
 	except KeyboardInterrupt:
 		print()
-		return True
+		sys.exit(1)
 	
 	for i in range(len(l)):
 		v = l[i]
@@ -45,4 +45,3 @@ def i_sort():
 			p = p - 1
 		l[p] = v
 	print(*l)
-	return False
