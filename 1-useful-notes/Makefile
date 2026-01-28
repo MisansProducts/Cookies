@@ -1,8 +1,15 @@
-output: main.o
-	g++ main.o -o output
+CXX = g++
+CXXFLAGS = -std=c++14 -Wall -Wextra -O2
+TARGET = output
+SOURCES = main.cpp
+HEADERS = headers/demos/*.h headers/*.h
 
-main.o: main.cpp
-	g++ -c main.cpp
+all: $(TARGET)
+
+$(TARGET): $(SOURCES) $(HEADERS)
+	$(CXX) $(CXXFLAGS) $(SOURCES) -o $(TARGET)
 
 clean:
-	rm *.o output
+	rm -f $(TARGET) example.txt binary.dat position.txt
+
+.PHONY: all clean
