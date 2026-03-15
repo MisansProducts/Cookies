@@ -1,5 +1,3 @@
-//Made by Alex
-
 //======Libraries======
 #include <iostream>
 using namespace std;

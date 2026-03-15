@@ -1,23 +1,28 @@
-# Useful Notes
-> Cookies/1-useful-notes/
+# C++ Useful Notes
+> Cookies/1-cpp-useful-notes/
 
 Comprehensive C++ Language Features Demonstration - showcasing various aspects of the C++ programming language from basics to modern features.
 
+## Usage
+
+1. Run `make`
+2. Run `./output`
+
 ## Features Demonstrated
 
-### Basic Types & Variables (`basics.cpp`)
+### Basic Types & Variables (`basics_demo.h`)
 - Fundamental data types (bool, char, int, float, double, string)
 - Type inference with `auto` and `decltype`
 - Arrays and range-based for loops
 - Math functions from `<cmath>`
 
-### Functions & Overloading (`functions.cpp`)
+### Functions & Overloading (`functions_demo.h`)
 - Function templates and overloading
 - Lambda expressions and `std::function`
 - Function pointers
 - Array manipulation functions
 
-### Object-Oriented Programming (`oop.cpp`)
+### Object-Oriented Programming (`oop_demo.h`)
 - Classes with constructors/destructors
 - Operator overloading (+, -, ++, ==, !=, <, <<)
 - Copy and move semantics
@@ -25,7 +30,7 @@ Comprehensive C++ Language Features Demonstration - showcasing various aspects o
 - Pure virtual functions and abstract classes
 - Multiple inheritance
 
-### STL Containers & Algorithms (`stl_demo.cpp`)
+### STL Containers & Algorithms (`stl_demo.h`)
 - `vector`, `map`, `set`, `list` containers
 - Sorting algorithms with `std::sort`
 - Search operations with `std::find`
@@ -33,7 +38,7 @@ Comprehensive C++ Language Features Demonstration - showcasing various aspects o
 - Range-based for loops with containers
 - Pair operations and custom sorting
 
-### Modern C++ Features (`modern.cpp`)
+### Modern C++ Features (`modern_demo.h`)
 - Smart pointers (`unique_ptr`, `shared_ptr`)
 - Move semantics and rvalue references
 - `nullptr` instead of `NULL`
@@ -43,27 +48,20 @@ Comprehensive C++ Language Features Demonstration - showcasing various aspects o
 - Generic lambdas (C++14)
 - RAII demonstrations
 
-### Template Programming (`templates_demo.cpp`)
+### Template Programming (`templates_demo.h`)
 - Function templates
 - Class templates with specialization
 - Template member functions
 - Multiple template parameters
 - User-defined type templates
 
-### File I/O & Streams (`file_io.cpp`)
+### File I/O & Streams (`io_demo.h`)
 - File reading and writing
 - String streams for parsing
 - Stream manipulators
 - Error handling for file operations
 - Binary file operations
 - File position operations
-
-## Usage
-
-1. Download and navigate to the directory for these files
-2. Open the terminal and type `make`
-3. Type `./output` to run the demonstration program
-4. Type `make clean` to remove the compiled files
 
 ## Requirements
 

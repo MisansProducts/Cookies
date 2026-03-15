@@ -8,43 +8,34 @@ using namespace std;
 
 inline void demonstrateOOP() {
 	cout << "--- Object-Oriented Programming ---\n";
-	
-	// Basic class usage
-	Cookie myObject(14, 12);
-	cout << "Initial Cookie object:\n";
-	myObject.print();
-	
-	myObject.add(5);
-	cout << "After add(5):\n";
-	myObject.print();
-	
-	// Operator overloading
-	Cookie cookie1(10, 20);
-	Cookie cookie2(5, 15);
-	Cookie cookie3 = cookie1 + cookie2;
-	cout << "Cookie1 + Cookie2:\n";
-	cookie3.print();
-	
-	// Copy constructor
-	Cookie cookieCopy = cookie1;
-	cout << "Copy of Cookie1:\n";
-	cookieCopy.print();
-	
-	// Increment operators
-	cout << "Pre-increment on Cookie2:\n";
-	++cookie2;
+
+	// Default constructor
+	cout << "cookie1:" << endl;
+	Cookie cookie1;
+	cookie1.print();
+	cookie1.add(5);
+
+	// Stream operator
+	cout << "\tStream output: " << cookie1 << endl;
+
+	// Parameterized constructor
+	cout << "cookie2(1, 2):" << endl;
+	Cookie cookie2(1, 2);
 	cookie2.print();
-	
-	cout << "Post-increment on Cookie2:\n";
+
+	// Pre-increment and post-increment
+	++cookie2;
 	cookie2++;
 	cookie2.print();
-	
-	// Comparison operators
-	cout << "Cookie1 == Cookie3: " << (cookie1 == cookie3) << endl;
-	cout << "Cookie1 < Cookie3: " << (cookie1 < cookie3) << endl;
-	
-	// Stream operator
-	cout << "Stream output: " << cookie1 << endl;
+
+	// Operator overloading
+	cout << "cookie3 = cookie1 + cookie2:" << endl;
+	Cookie cookie3 = cookie1 + cookie2;
+	cookie3.print();
+
+	// Comparison
+	cout << "\tCookie1 == Cookie3: " << ((cookie1 == cookie3) ? "True" : "False") << endl;
+	cout << "\tCookie1 <  Cookie3: " << ((cookie1 < cookie3) ? "True" : "False") << endl;
 	
 	// Virtual functions and polymorphism
 	cout << "\nVirtual functions:\n";
